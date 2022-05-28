@@ -1,0 +1,540 @@
+<html>
+
+<head>
+    <title>Mobile ui for switto by prabu 2022 May 28</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            background-color: #ececec;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .header {
+            float: left;
+            width: 90%;
+            background-color: #f15c22;
+            height: 30px;
+            padding: 10px 5%;
+        }
+
+        .tab_nav {
+            float: left;
+            width: 50%;
+            background-color: #ff6f36;
+            border-bottom: 3px solid #ff6f36;
+            height: 30px;
+            padding: 10px 0%;
+            text-align: center;
+            font-size: 14px;
+            color: rgba(255, 255, 255, .7);
+            line-height: 30px;
+        }
+
+        .tab_active {
+            border-bottom: 3px solid #c74f20;
+        }
+
+        .logo {
+            float: left;
+            width: 30px;
+            height: 30px;
+            background-color: #ffffff;
+            border-radius: 50%;
+        }
+
+        .logo_title {
+            float: left;
+            width: 50%;
+            padding-left: 2%;
+            padding-top: 5px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, .7);
+            font-weight: 500;
+        }
+
+        .app_right_icon {
+            float: right;
+            color: #ffffff;
+            font-size: 30px;
+            margin-top: 0px;
+        }
+
+        .order_bg {
+            float: left;
+            width: 94%;
+            padding: 10px 3%;
+        }
+
+        .main_heading {
+            float: left;
+            width: 100%;
+            padding-top: 10px;
+            padding-bottom: 15px;
+            font-size: 16px;
+            font-weight: 400;
+            color: #666666;
+        }
+
+        .order_container {
+            float: left;
+            width: 94%;
+            padding: 10px 3%;
+            background-color: #ffffff;
+            margin-bottom: 10px;
+            border-radius: 15px;
+        }
+
+        .order_id {
+            float: left;
+            width: 50%;
+            font-size: 14px;
+            font-weight: 500;
+            height: 40px;
+            border-bottom: 1px solid #cccccc;
+            margin-bottom: 5px;
+            color: #0f172a;
+        }
+
+        .order_status_action,
+        .order_status_ready {
+            float: right;
+            padding: 5px 10px;
+            text-align: center;
+            border-radius: 15px;
+            background-color: #666666;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        .order_status_new {
+            background-color: #20cc67;
+            color: #ffffff;
+        }
+
+        .order_status_ready {
+            background-color: #cc2020;
+            color: #ffffff;
+        }
+
+        .order_detail {
+            float: left;
+            width: 100%;
+            font-size: 14px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .order_title {
+            float: left;
+            width: 60%;
+            color: #64748b;
+        }
+
+        .order_value {
+            float: left;
+            width: 40%;
+            color: #0f172a;
+        }
+
+        .accept_btn {
+            float: right;
+            width: 65%;
+            line-height: 45px;
+            background-color: #1d4ed8;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #ffffff;
+            margin-top: 5px;
+        }
+
+        .reject_btn {
+            float: left;
+            width: 33%;
+            line-height: 43px;
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #334155;
+            margin-top: 5px;
+        }
+
+        .cash_payment {
+            float: left;
+            width: 94%;
+            padding: 10px 3%;
+            background-color: #e61b1b;
+            color: #ffffff;
+            font-size: 12px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .cash_icon {
+            float: left;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        #side_menu {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .5);
+            position: fixed;
+            z-index: 10;
+            top: 0;
+            left: -1000px;
+            transition: all 0.5s;
+        }
+
+        .side_menu_open {
+            left: 0 !important;
+            transition: all 0.5s;
+        }
+
+        .side_menu_container {
+            float: left;
+            width: 70%;
+            height: 100%;
+            background-color: #f3f3f3;
+            padding: 20px 5%;
+        }
+
+        .menu_box_container {
+            float: left;
+            width: 94%;
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 10px 3%;
+            border-radius: 8px;
+            margin: 10px 0px;
+        }
+
+        .menu_item_box {
+            float: left;
+            width: 96%;
+            padding: 10px 2%;
+            color: rgba(0, 0, 0, 0.9);
+            font-size: 14px;
+        }
+
+        .menu_icon {
+            float: left;
+            margin-right: 15px;
+            font-size: 20px;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .profile_detail {
+            float: left;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .profile_icon {
+            float: left;
+            width: 25%;
+        }
+
+        .profile_icon_circle {
+            float: left;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background-color: #cccccc;
+        }
+
+        .profile_name {
+            float: left;
+            width: 75%;
+            padding-top: 10px;
+        }
+
+        .profile_name {
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.8);
+        }
+
+        .profile_subname {
+            font-size: 12px;
+            font-weight: 400;
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        #order_histroy {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+
+        </div>
+        <div class="logo_title">
+            Vijayaragavan
+        </div>
+
+        <div class="app_right_icon" onclick="openSidemenu()">
+            <ion-icon name="menu"></ion-icon>
+        </div>
+    </div>
+    <div class="tab_nav tab_active" id="nav_left" onclick="changeMenu()">
+        Current order
+    </div>
+    <div class="tab_nav" id="nav_right" onclick="changeMenu()">
+        Order history
+    </div>
+    <div class="order_bg" id="current_order">
+        <a href="./order.html">
+            <div class="order_container">
+                <div class="order_id">
+                    ID: E645G
+                </div>
+                <div class="order_id">
+                    <span class="order_status_action order_status_new">New order</span>
+                </div>
+                <div class="order_detail">
+                    <div class="order_title">
+                        <ion-icon name="person"></ion-icon> Pavithra Raguram
+                    </div>
+                    <div class="order_value">
+                        May 25 - 09:40H
+                    </div>
+                </div>
+                <div class="order_detail">
+                    <div class="order_title">
+                        <ion-icon name="cash"></ion-icon> Cash on delivery
+                    </div>
+                    <div class="order_value">
+                        CHF 70.00
+                    </div>
+                </div>
+                <div class="reject_btn">
+                    Decline
+                </div>
+                <div class="accept_btn">
+                    Accept order
+                </div>
+            </div>
+        </a>
+        <a href="./order_ready.html">
+            <div class="order_container">
+                <div class="order_id">
+                    ID: AHJ67
+                </div>
+                <div class="order_id">
+                    <span class="order_status_ready">Food is ready</span>
+                </div>
+                <div class="order_detail">
+                    <div class="order_title">
+                        <ion-icon name="person"></ion-icon> Dhanush Selva
+                    </div>
+                    <div class="order_value">
+                        May 25 - 09:50H
+                    </div>
+                </div>
+                <div class="order_detail">
+                    <div class="order_title">
+                        <ion-icon name="wine"></ion-icon> Phanat thai
+                    </div>
+                    <div class="order_value">
+                        May 25 - 10:10H
+                    </div>
+                </div>
+                <div class="order_detail">
+                    <div class="order_title">
+                        <ion-icon name="card"></ion-icon> Credit card
+                    </div>
+                    <div class="order_value">
+                        CHF 85.00
+                    </div>
+                </div>
+            </div>
+        </a>
+        <div class="cash_payment">
+            <div class="cash_icon">
+                <ion-icon name="alert-circle"></ion-icon>
+            </div>
+            Cash in Hand : CHF 700.00
+        </div>
+    </div>
+    <div class="order_bg" id="order_histroy">
+        <div class="order_container">
+            <div class="order_id">
+                ID: AHJ67
+            </div>
+            <div class="order_id">
+                <span class="order_status_action">
+                    <ion-icon name="checkmark"></ion-icon> Delivered
+                </span>
+            </div>
+            <div class="order_detail">
+                <div class="order_title">
+                    <ion-icon name="person"></ion-icon> Dhanush Selva
+                </div>
+                <div class="order_value">
+                    May 25 - 09:50H
+                </div>
+            </div>
+            <div class="order_detail">
+                <div class="order_title">
+                    <ion-icon name="bicycle"></ion-icon> Delivery
+                </div>
+                <div class="order_value">
+                    25 Min
+                </div>
+            </div>
+            <div class="order_detail">
+                <div class="order_title">
+                    <ion-icon name="card"></ion-icon> Credit card
+                </div>
+                <div class="order_value">
+                    CHF 85.00
+                </div>
+            </div>
+        </div>
+        <div class="order_container">
+            <div class="order_id">
+                ID: XXHJ67
+            </div>
+            <div class="order_id">
+                <span class="order_status_action">
+                    <ion-icon name="checkmark"></ion-icon> Delivered
+                </span>
+            </div>
+            <div class="order_detail">
+                <div class="order_title">
+                    <ion-icon name="person"></ion-icon> Mathuvanthi Raja
+                </div>
+                <div class="order_value">
+                    May 24 - 13:50H
+                </div>
+            </div>
+            <div class="order_detail">
+                <div class="order_title">
+                    <ion-icon name="bicycle"></ion-icon> Delivery
+                </div>
+                <div class="order_value">
+                    25 Min
+                </div>
+            </div>
+            <div class="order_detail">
+                <div class="order_title">
+                    <ion-icon name="cash"></ion-icon> COD
+                </div>
+                <div class="order_value">
+                    CHF 99.00
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="side_menu">
+        <div class="side_menu_container">
+            <div class="profile_detail">
+                <div class="profile_icon">
+                    <div class="profile_icon_circle">
+
+                    </div>
+                </div>
+                <div class="profile_name">
+                    Firstname Lastname
+                    <div class="profile_subname">
+                        custername@gmail.com
+                    </div>
+                </div>
+            </div>
+            <div class="menu_box_container">
+                <div class="menu_item_box">
+                    <div class="menu_icon">
+                        <ion-icon name="bag-handle"></ion-icon>
+                    </div>
+                    Order history
+                </div>
+                <div class="menu_item_box">
+                    <div class="menu_icon">
+                        <ion-icon name="wallet"></ion-icon>
+                    </div>
+                    Tips
+                </div>
+
+                <div class="menu_item_box">
+                    <div class="menu_icon">
+                        <ion-icon name="settings"></ion-icon>
+                    </div>
+                    Edit profile
+                </div>
+                <div class="menu_item_box">
+                    <div class="menu_icon">
+                        <ion-icon name="log-out"></ion-icon>
+                    </div>
+                    logout
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function openSidemenu() {
+        const sideBar = document.getElementById("side_menu");
+
+        if (sideBar.className === 'side_menu_open') {
+            sideBar.className = "";
+        } else {
+            sideBar.className += "side_menu_open";
+        }
+    }
+
+    function changeMenu() {
+        const order_c = document.getElementById("current_order");
+        const order_h = document.getElementById("order_histroy");
+
+        const nav_left = document.getElementById("nav_left");
+        const nav_right = document.getElementById("nav_right");
+
+        if (nav_left.className === 'tab_nav tab_active') {
+            order_c.style.display = "none";
+            order_h.style.display = "block";
+
+            nav_left.className = "tab_nav";
+            nav_right.className = "tab_nav tab_active";
+        } else {
+            order_h.style.display = "none";
+            order_c.style.display = "block";
+
+            nav_right.className = "tab_nav";
+            nav_left.className = "tab_nav tab_active";
+        }
+
+    }
+
+    document.addEventListener('mouseup', function (e) {
+        const sideBar = document.getElementById("side_menu");
+        if (sideBar.contains(e.target)) {
+            sideBar.className = "";
+        }
+    });
+</script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</html>

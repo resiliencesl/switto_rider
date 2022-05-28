@@ -1,0 +1,257 @@
+<html>
+
+<head>
+    <title>Mobile ui for switto by prabu 2022 May 17</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            overflow-x: hidden;
+        }
+
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .cart_container {
+            float: left;
+            width: 90%;
+            padding: 10px 5%;
+            background-color: #ffffff;
+        }
+
+        .cart_header {
+            float: left;
+            width: 90%;
+            padding: 10px 5%;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            background-color: #f0d4d4;
+            font-size: 14px;
+            font-weight: 500;
+            color: #222222;
+        }
+
+        .cart_header span {
+            color: #666666;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        .cart_items_container {
+            float: left;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .cart_item {
+            float: left;
+            width: 92%;
+            padding: 10px 4%;
+            border-bottom: 1px solid #e7e7e7;
+            background-color: #ecf0f6;
+            border-radius: 8px;
+        }
+
+        .cart_title {
+            float: left;
+            width: 65%;
+            font-size: 16px;
+            font-weight: 500;
+            color: #373737;
+        }
+
+        .cart_qty {
+            color: #666666;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .cart_item_price {
+            float: left;
+            width: 35%;
+            font-size: 14px;
+            font-weight: 500;
+            color: #222222;
+            text-align: right;
+        }
+
+        .add_note {
+            float: left;
+            width: 90%;
+            border-radius: 0px 0px 8px 8px;
+            padding: 5px 5%;
+            margin-bottom: 10px;
+            font-size: 13px;
+            font-weight: 500;
+            background-color: #f0c0c0;
+            color: #5c1919;
+        }
+
+        .add_note_icon {
+            float: left;
+            margin-right: 10px;
+            margin-top: 0px;
+            font-size: 20px;
+        }
+
+        .addon_item {
+            float: left;
+            width: 90%;
+            background-color: #ffffff;
+            padding: 5px 5%;
+            border-radius: 8px;
+            margin-top: 5px;
+        }
+
+        .addon_title {
+            float: left;
+            width: 100%;
+            font-size: 14px;
+            font-weight: 500;
+            color: #222222;
+        }
+
+        .addon_title span {
+            font-size: 12px;
+            font-weight: 400;
+            color: #666666;
+        }
+
+        .cart_con_title {
+            float: left;
+            width: 90%;
+            padding: 10px 5%;
+            font-size: 16px;
+            color: #222222;
+        }
+
+        .cart_icon {
+            float: left;
+            width: 70px;
+            font-size: 22px;
+            margin-top: 1px;
+        }
+
+        .btn_status {
+            float: left;
+            width: 60%;
+            margin: 10px 20%;
+            height: 40px;
+            line-height: 40px;
+            background-color: #f0cd4f;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cart_con_title">
+        <a href="./index.html">
+            <div class="cart_icon">
+                <ion-icon name="arrow-back"></ion-icon>
+            </div>
+        </a>
+        Order Details
+    </div>
+    <div class="cart_header">
+        <div style="float: left; width: 50%;">
+            Order ID
+            <span>AGF385</span>
+        </div>
+        <div style="float: left; width: 50%;">
+            Payment
+            <span>COD</span>
+        </div>
+        <div
+            style="float: left; width: 100%; margin: 7px 0px; padding: 7px 0px; border-top: 1px solid #e4b9b9; border-bottom: 1px solid #e4b9b9;">
+            Order Date
+            <span>2022 May 26 / 11:00 H</span>
+        </div>
+        <div style="float: left; width: 100%;">
+            Estimate Delivery
+            <span>2022 May 26 / 11:40 H</span>
+        </div>
+    </div>
+
+    <div class="cart_container">
+        <div
+            style="float: left; width: 90%; padding: 10px 5%; text-align: center; border-bottom: 1px dashed #cccccc; background-color: #ecf0f6; border-radius: 8px; ">
+            <div style="float: left; width: 100%; font-size: 25px; font-weight: 400; color: #222222;">
+                CHF 105.00
+            </div>
+            <div style="float: left; width: 100%; font-size: 14px; font-weight: 500; color: #222222;">
+                Indian restaurant kanchi <br>
+                <span style="font-size: 13px; font-weight: 400; color: #666666;">
+                    Friedenstrasse 2 , 6004 Luzern.
+                </span>
+
+                <div class="btn_status">
+                    Food is preparing now
+                </div>
+                <br>
+                <span style="font-size: 12px; font-weight: 400; color: #666666;">Estimated pickup time : 11:20 H</span>
+            </div>
+        </div>
+        <div class="cart_items_container">
+            <div class="cart_item">
+                <div class="cart_title">
+                    Prawn fried rice <br>
+                    <div class="cart_qty">
+                        <ion-icon name="close"></ion-icon> 1
+                    </div>
+                </div>
+                <div class="cart_item_price">
+                    CHF 20.00
+                </div>
+                <div class="addon_item">
+                    <div class="addon_title">
+                        Choose of drink <br>
+                        <span>Water bottle</span> + CHF 5.00
+                    </div>
+                </div>
+            </div>
+            <div class="cart_item">
+                <div class="cart_title">
+                    Prawn fried rice <br>
+                    <div class="cart_qty">
+                        <ion-icon name="close"></ion-icon> 1
+                    </div>
+                </div>
+                <div class="cart_item_price">
+                    CHF 20.00
+                </div>
+                <div class="addon_item">
+                    <div class="addon_title">
+                        Choose of drink <br>
+                        <span>Water bottle</span> + CHF 5.00
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="float: left; width: 90%; padding: 10px 5%; background-color: #dbdfe4; border-radius: 8px; ">
+            <div style="float: left; width: 100%; font-weight: 400; color: #222222;">
+                <span style="color: #666666; font-size: 13px;">Delivery</span>
+                <div style="float: left; width: 100%; font-size: 14px; font-weight: 500; padding-bottom: 10px;">
+                    <span style="font-size: 16px;">Vijay kumar</span> <br>
+                    <ion-icon name="location"></ion-icon> Friedenstrasse 40 , 6003 Luzern.
+                </div>
+                <hr>
+                <div style="float: left; width: 100%; font-size: 14px; font-weight: 400; color: #666666;">
+                    <ion-icon name="bicycle"></ion-icon> Delivery instruction display here.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

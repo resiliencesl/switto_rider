@@ -1,0 +1,165 @@
+<html>
+
+<head>
+    <title>Mobile ui for switto by prabu 2022 May 17</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+        }
+
+        .cont {
+            float: left;
+            width: 90%;
+            height: 100%;
+            padding: 0px 5%;
+            background: #f15c22;
+            background-image: url('./bg.jpg');
+            background-repeat: repeat;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .signup {
+            width: 90%;
+            margin: 20px 5%;
+            border: 2px solid #f15c22;
+            background-color: #f15c22;
+            height: 45px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #ffffff;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 5px;
+        }
+
+        .logo_container {
+            float: left;
+            width: 100%;
+        }
+
+        .logo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            z-index: 1;
+            margin: 0% auto;
+        }
+
+        .title {
+            float: left;
+            width: 100%;
+            padding: 10px 0%;
+            font-size: 30px;
+            color: #ffffff;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .title span {
+            font-size: 14px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, .7);
+        }
+
+        /*********/
+        #login_container {
+            width: 90%;
+            height: 100%;
+            background-color: #ffffff;
+            padding: 20px 5%;
+            position: fixed;
+            z-index: 10;
+            bottom: -1000px;
+            left: 0;
+            transition: all 500ms;
+        }
+
+        .textbox_con {
+            float: left;
+            width: 100%;
+        }
+
+        .textbox {
+            float: left;
+            width: 100%;
+            padding-left: 5%;
+            padding-right: 5%;
+            height: 45px;
+            margin-top: 10px;
+            font-size: 15px;
+            font-weight: 500;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .login_btn {
+            float: left;
+            width: 90%;
+            padding-left: 5%;
+            padding-right: 5%;
+            height: 45px;
+            line-height: 45px;
+            border-radius: 3px;
+            background-color: #0ca74f;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        .login_icon {
+            float: right;
+            font-size: 20px;
+            margin-top: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cont">
+        <div style="float: left; width: 100%;">
+
+            <div class="logo_container">
+                <div class="logo">
+                    <img src="./logo.png" width="100%">
+                </div>
+            </div>
+            <div class="title">
+                Switto Rider <br>
+                <span>Welcome back! Please enter your details.</span>
+            </div>
+            <div class="textbox_con">
+                <input type="text" class="textbox" placeholder="Email address">
+            </div>
+            <div class="textbox_con">
+                <input type="text" class="textbox" placeholder="Password">
+            </div>
+            <a href="./index.html">
+                <div class="login_btn">
+                    Login
+
+                    <div class="login_icon">
+                        <ion-icon name="chevron-forward"></ion-icon>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
