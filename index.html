@@ -107,6 +107,7 @@
         }
 
         .order_status_action,
+        .order_status_pending,
         .order_status_ready {
             float: right;
             padding: 5px 10px;
@@ -124,7 +125,16 @@
         }
 
         .order_status_ready {
-            background-color: #cc2020;
+            background-color: #eaae16;
+            color: #ffffff;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .order_status_pending {
+            min-width: 120px;
+            text-align: center;
+            background-color: #406eeb;
             color: #ffffff;
         }
 
@@ -314,7 +324,7 @@
                         <ion-icon name="person"></ion-icon> Pavithra Raguram
                     </div>
                     <div class="order_value">
-                        May 25 - 09:40H
+                        09:40H
                     </div>
                 </div>
                 <div class="order_detail">
@@ -333,6 +343,30 @@
                 </div>
             </div>
         </a>
+        <div class="order_container">
+            <div class="order_id">
+                ID: KDHJ67
+            </div>
+            <div class="order_id">
+                <span class="order_status_pending">Food is preparing</span>
+            </div>
+            <div class="order_detail">
+                <div class="order_title">
+                    <ion-icon name="person"></ion-icon> Thushara Ram
+                </div>
+                <div class="order_value">
+                    09:50H
+                </div>
+            </div>
+            <div class="order_detail">
+                <div class="order_title">
+                    <ion-icon name="wine"></ion-icon> Phanat thai
+                </div>
+                <div class="order_value">
+                    10:10H
+                </div>
+            </div>
+        </div>
         <a href="./order_ready.html">
             <div class="order_container">
                 <div class="order_id">
@@ -346,7 +380,7 @@
                         <ion-icon name="person"></ion-icon> Dhanush Selva
                     </div>
                     <div class="order_value">
-                        May 25 - 09:50H
+                        09:50H
                     </div>
                 </div>
                 <div class="order_detail">
@@ -354,19 +388,12 @@
                         <ion-icon name="wine"></ion-icon> Phanat thai
                     </div>
                     <div class="order_value">
-                        May 25 - 10:10H
-                    </div>
-                </div>
-                <div class="order_detail">
-                    <div class="order_title">
-                        <ion-icon name="card"></ion-icon> Credit card
-                    </div>
-                    <div class="order_value">
-                        CHF 85.00
+                        10:10H
                     </div>
                 </div>
             </div>
         </a>
+
         <div class="cash_payment">
             <div class="cash_icon">
                 <ion-icon name="alert-circle"></ion-icon>

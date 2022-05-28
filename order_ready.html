@@ -15,7 +15,7 @@
             overflow-x: hidden;
         }
 
-        a{
+        a {
             color: inherit;
             text-decoration: none;
         }
@@ -149,36 +149,88 @@
             background-color: #f0cd4f;
             border-radius: 3px;
         }
-        .btn_cart {
+
+        .btn_direction {
             float: left;
             width: 100%;
+            margin: 10px 0%;
             height: 50px;
-            border: none;
-            border-radius: 8px;
-            background-color: #0ca74f;
+            line-height: 50px;
+            background-color: #078e41;
             color: #ffffff;
+            border-radius: 3px;
+            text-align: center;
+        }
+
+        /******************/
+        #button-background {
+            position: relative;
+            background-color: #0ca74f;
+            width: 100%;
+            height: 50px;
+            border: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #slider {
+            transition: width 0.3s, border-radius 0.3s, height 0.3s;
+            position: absolute;
+            left: 0px;
+            background-color: #078e41;
+            color: #ffffff;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #slider.unlocked {
+            transition: all 0.3s;
+            width: inherit;
+            left: 0 !important;
+            height: inherit;
+            border-radius: inherit;
+        }
+
+        .bottom {
+            position: fixed;
+            bottom: 0;
             font-size: 14px;
-            text-transform: uppercase;
-            margin: 10px 0px;
+            color: white;
         }
-        @keyframes glowing {
-        0% {
-          background-color: #6dc553;
-          box-shadow: 0px 5px 20px -10px rgba(0,0,0,.2);
-         
+
+        .bottom a {
+            color: white;
         }
-        50% {
-          background-color: #64d541;
-          box-shadow: 0px 8px 20px -10px rgba(0,0,0,.3);
+
+        #modal_customer {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .5);
+            position: fixed;
+            display: none;
+            top: 0;
+            left: 0;
         }
-        100% {
-          background-color: #0ca74f;
-          box-shadow: 0px 10px 20px -10px rgba(0,0,0,.5);
+
+        .modal_customer_inner_box {
+            width: 80%;
+            height: 200px;
+            padding: 20px 5%;
+            margin: 50px 5%;
+            background-color: #ffffff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 8px;
+            box-shadow: 0px 0px 50px -20px rgba(0, 0, 0, .5);
         }
-      }
-      .btn_cart {
-        animation: glowing 1300ms infinite;
-      }
     </style>
 </head>
 
@@ -212,9 +264,14 @@
     </div>
 
     <div class="cart_container">
-        <button type="button" class="btn_cart">
-            Ready for delivery
-        </button>
+        <div style="float: left; width: 100%; margin-bottom: 15px;">
+            <div id="button-background">
+                <div id="slider">
+                    <ion-icon name="arrow-forward"></ion-icon>
+                </div>
+                Start delivery
+            </div>
+        </div>
         <div
             style="float: left; width: 90%; padding: 10px 5%; text-align: center; border-bottom: 1px dashed #cccccc; background-color: #ecf0f6; border-radius: 8px; ">
             <div style="float: left; width: 100%; font-size: 25px; font-weight: 400; color: #222222;">
@@ -227,10 +284,11 @@
                 </span>
 
                 <div class="btn_status">
-                    Food is ready
+                    <ion-icon name="navigate"></ion-icon> Food is ready
                 </div>
                 <br>
-                <span style="font-size: 12px; font-weight: 400; color: #666666;">Estimated pickup time : 11:20 H</span>
+                <span style="font-size: 12px; font-weight: 400; color: #666666;">Click to get restaurant's
+                    direction.<br>Order will be ready at 11:20 H</span>
             </div>
         </div>
         <div class="cart_items_container">
@@ -283,8 +341,101 @@
             </div>
         </div>
     </div>
+
+    <div id="modal_customer">
+        <div class="modal_customer_inner_box">
+            <div style="float: left; width: 100%; font-weight: 400; color: #222222;">
+                <span style="color: #666666; font-size: 13px;">Delivery location :</span>
+                <div style="float: left; width: 100%; font-size: 15px; font-weight: 500; padding: 10px 0px;">
+                    <span style="font-size: 16px;">Vijay kumar</span>
+                    <div style="float: left; width: 100%; margin-top: 5px; font-weight: 400; color: #666666;">
+                        Friedenstrasse 40 , 6003 Luzern.
+                    </div>
+
+                    <div
+                        style="float: left; width: 90%; margin-top: 10px; border-radius: 3px; padding: 5px 5%; font-size: 13px; font-weight: 400; background-color: #f1f1f1; color: #666666;">
+                        Delivery instruction display here. Delivery instruction display here.
+                    </div>
+
+                    <div class="btn_direction">
+                        <ion-icon name="navigate"></ion-icon> Get direction
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script>
+    var initialMouse = 0;
+    var slideMovementTotal = 0;
+    var mouseIsDown = false;
+    var slider = $('#slider');
+
+    slider.on('mousedown touchstart', function (event) {
+        mouseIsDown = true;
+        slideMovementTotal = $('#button-background').width() - $(this).width() + 10;
+        initialMouse = event.clientX || event.originalEvent.touches[0].pageX;
+    });
+
+    $(document.body, '#slider').on('mouseup touchend', function (event) {
+        if (!mouseIsDown)
+            return;
+        mouseIsDown = false;
+        var currentMouse = event.clientX || event.changedTouches[0].pageX;
+        var relativeMouse = currentMouse - initialMouse;
+
+        if (relativeMouse < slideMovementTotal) {
+            $('.slide-text').fadeTo(300, 1);
+            slider.animate({
+                left: "-10px"
+            }, 300);
+            return;
+
+        }
+        slider.addClass('unlocked');
+        $('#locker').text('lock_outline');
+        setTimeout(function () {
+            slider.on('click tap', function (event) {
+                if (!slider.hasClass('unlocked'))
+                    return;
+                slider.removeClass('unlocked');
+                $('#locker').text('lock_open');
+                slider.off('click tap');
+
+            });
+        }, 0);
+    });
+
+    $(document.body).on('mousemove touchmove', function (event) {
+        if (!mouseIsDown)
+            return;
+
+        var currentMouse = event.clientX || event.originalEvent.touches[0].pageX;
+        var relativeMouse = currentMouse - initialMouse;
+        var slidePercent = 1 - (relativeMouse / slideMovementTotal);
+
+        $('.slide-text').fadeTo(0, slidePercent);
+
+        if (relativeMouse <= 0) {
+            slider.css({ 'left': '-10px' });
+            return;
+        }
+
+
+
+        if (relativeMouse >= slideMovementTotal + 10) {
+            slider.css({ 'left': slideMovementTotal + 'px' });
+            
+            $("#modal_customer").show();
+            return;
+        }
+        slider.css({ 'left': relativeMouse - 10 });
+
+    });
+</script>
