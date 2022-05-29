@@ -282,10 +282,12 @@
                 <span style="font-size: 13px; font-weight: 400; color: #666666;">
                     Friedenstrasse 2 , 6004 Luzern.
                 </span>
-
-                <div class="btn_status">
-                    <ion-icon name="navigate"></ion-icon> Food is ready
-                </div>
+                <a
+                    href=" https://www.google.pt/maps/dir//latitude,longitude/@latitude,longitude,733m/data=!3m1!1e3!4m4!4m3!1m0!1m1!4e1?hl=en">
+                    <div class="btn_status">
+                        <ion-icon name="navigate"></ion-icon> Food is ready
+                    </div>
+                </a>
                 <br>
                 <span style="font-size: 12px; font-weight: 400; color: #666666;">Click to get restaurant's
                     direction.<br>Order will be ready at 11:20 H</span>
@@ -430,7 +432,7 @@
 
         if (relativeMouse >= slideMovementTotal + 10) {
             slider.css({ 'left': slideMovementTotal + 'px' });
-            
+
             $("#modal_customer").show();
             return;
         }
